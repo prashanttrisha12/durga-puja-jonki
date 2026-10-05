@@ -50,6 +50,18 @@
         </div>
       </a>
 
+      <!-- Direct Mobile Action Buttons (Visible on Mobile instead of hiding behind 3 lines) -->
+      <div class="mobile-header-actions">
+        <a href="photos.html" class="mobile-header-btn photo-btn" title="फोटो संग्रह">
+          <span class="m-icon">📸</span>
+          <span class="m-label">फोटो</span>
+        </a>
+        <a href="videos.html" class="mobile-header-btn video-btn" title="वीडियो संग्रह">
+          <span class="m-icon">🎥</span>
+          <span class="m-label">वीडियो</span>
+        </a>
+      </div>
+
       <!-- Desktop & Mobile Navigation (Home, Photos, Videos, Puja Schedule, Temple Map, Instagram) -->
       <nav>
         <ul class="nav-menu">
@@ -62,7 +74,7 @@
         </ul>
       </nav>
 
-      <!-- Clean Mobile Hamburger -->
+      <!-- Clean Mobile Hamburger (3 lines) -->
       <button class="menu-toggle" aria-label="मेनू खोलें" aria-expanded="false">
         <span></span>
         <span></span>
@@ -70,6 +82,32 @@
       </button>
     </div>
   </header>
+
+  <!-- Mobile Quick Category Strip (Instant Visibility for Photos & Videos) -->
+  <div class="mobile-category-strip">
+    <div class="container mobile-strip-inner">
+      <a href="photos.html" class="strip-item highlight-photo">
+        <span class="strip-icon">📸</span>
+        <span class="strip-text">फोटो संग्रह</span>
+      </a>
+      <a href="videos.html" class="strip-item highlight-video">
+        <span class="strip-icon">🎥</span>
+        <span class="strip-text">वीडियो संग्रह</span>
+      </a>
+      <a href="schedule.html" class="strip-item">
+        <span class="strip-icon">📅</span>
+        <span class="strip-text">पूजा कार्यक्रम</span>
+      </a>
+      <a href="map.html" class="strip-item">
+        <span class="strip-icon">📍</span>
+        <span class="strip-text">मंदिर मार्ग</span>
+      </a>
+      <a href="https://www.instagram.com/mithila_vibes.9/" target="_blank" rel="noopener noreferrer" class="strip-item">
+        <span class="strip-icon">📸</span>
+        <span class="strip-text">@mithila_vibes.9</span>
+      </a>
+    </div>
+  </div>
 
   <!-- ==========================================================================
        2. FULL-SCREEN CINEMATIC HERO SECTION (Requirement 3)
@@ -128,40 +166,59 @@
           </div>
         </div>
       </div>
+
+      <!-- Direct Scroll Down Cue (Indicates to scroll down for Photo and Video Folders) -->
+      <a href="#quick-access" class="scroll-down-cue" aria-label="नीचे फोटो व वीडियो फोल्डर पर जाएं">
+        <span class="cue-pulse-arrow">👇</span>
+        <span class="cue-text">नीचे <strong>फोटो व वीडियो फोल्डर</strong> देखें (Scroll Down)</span>
+        <span class="cue-pulse-arrow">👇</span>
+      </a>
     </div>
   </section>
 
   <!-- ==========================================================================
-       4. QUICK ACCESS CARDS (Requirement 5)
+       4. QUICK ACCESS CARDS & FOLDERS (Requirement 5)
        ========================================================================== -->
-  <section class="quick-access-section">
+  <section class="quick-access-section" id="quick-access">
     <div class="container">
+      <div class="quick-access-header">
+        <span class="folder-badge">📁 मुख्य दर्शन फोल्डर्स</span>
+        <h3 class="quick-access-heading">पावन दर्शन संग्रह</h3>
+        <p class="quick-access-sub">नीचे दिए गए फोल्डर पर क्लिक करके सभी फोटो व वीडियो देखें</p>
+      </div>
+
       <div class="quick-access-grid">
         <!-- Card 1: All Photos Folder -->
         <a href="photos.html" class="quick-card">
+          <div class="quick-folder-tab">📁 फोटो फोल्डर</div>
           <div class="quick-thumb-wrap">
             <img src="assets/images/temple-darshan.jpg" alt="फोटो गैलरी" class="quick-thumb" id="quick-photo-thumb" />
           </div>
-          <h3 class="quick-title">📁 फोटो संग्रह</h3>
+          <h3 class="quick-title">📸 फोटो संग्रह</h3>
           <p class="quick-desc">सभी तस्वीरें एक ही स्थान पर देखें (All Photos)</p>
+          <span class="quick-action-pill">फोटो खोलें ➔</span>
         </a>
 
         <!-- Card 2: All Videos Folder -->
         <a href="videos.html" class="quick-card">
+          <div class="quick-folder-tab">📁 वीडियो फोल्डर</div>
           <div class="quick-thumb-wrap">
             <img src="assets/images/temple-main.png" alt="वीडियो गैलरी" class="quick-thumb" id="quick-video-thumb" />
           </div>
-          <h3 class="quick-title">📁 वीडियो संग्रह</h3>
+          <h3 class="quick-title">🎥 वीडियो संग्रह</h3>
           <p class="quick-desc">सभी वीडियो एक ही स्थान पर देखें (All Videos)</p>
+          <span class="quick-action-pill">वीडियो देखें ➔</span>
         </a>
 
         <!-- Card 3: Temple Location Map -->
         <a href="map.html" class="quick-card">
+          <div class="quick-folder-tab">📍 मंदिर मार्ग</div>
           <div class="quick-thumb-wrap">
             <img src="assets/images/temple-main.png" alt="मंदिर का स्थान" class="quick-thumb" />
           </div>
           <h3 class="quick-title">📍 मंदिर का पता</h3>
           <p class="quick-desc">मंदिर का स्थान एवं मार्ग देखें</p>
+          <span class="quick-action-pill">मार्ग देखें ➔</span>
         </a>
       </div>
     </div>
