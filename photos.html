@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>फोटो गैलरी | दुर्गा पूजा जोंकी | आधिकारिक दर्शन</title>
+  <meta name="description" content="माँ दुर्गा मंदिर जोंकी की भव्य एवं पावन फोटो गैलरी। मंदिर, माँ दुर्गा दर्शन, पावन प्रांगण एवं पूजा समिति की तस्वीरें HD में देखें एवं डाउनलोड करें।" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/gallery.css" />
+  <link rel="stylesheet" href="assets/css/chatbot.css" />
+  
+  <link rel="icon" type="image/png" href="assets/images/temple-main.png" />
+</head>
+<body>
+
+  <!-- Sacred Durga Shloka Banner -->
+  <div class="sacred-shloka-banner" role="region" aria-label="माँ दुर्गा पावन श्लोक">
+    <div class="container sacred-shloka-inner">
+      <span class="shloka-flower" aria-hidden="true">🌺</span>
+      <p class="sacred-shloka-text">
+        सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके। शरण्ये त्र्यम्बके गौरी नारायणि नमोऽस्तुते॥
+      </p>
+      <a href="https://www.instagram.com/mithila_vibes.9/" target="_blank" rel="noopener noreferrer" class="insta-top-pill" title="Instagram: mithila_vibes.9">
+        📸 mithila_vibes.9
+      </a>
+      <span class="shloka-flower" aria-hidden="true">🌺</span>
+    </div>
+  </div>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="दुर्गा पूजा जोंकी होम">
+        <img src="assets/images/temple-main.png" alt="दुर्गा पूजा जोंकी प्रतीक" class="brand-icon" />
+        <div class="brand-text-wrap">
+          <span class="brand-title">दुर्गा पूजा जोंकी</span>
+          <span class="brand-subtitle">दुर्गा पूजा समिति जोंकी</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="photos.html" class="nav-link active">Photos</a></li>
+          <li><a href="videos.html" class="nav-link">Videos</a></li>
+          <li><a href="schedule.html" class="nav-link">Puja Schedule</a></li>
+          <li><a href="map.html" class="nav-link">Temple Map</a></li>
+          <li><a href="https://www.instagram.com/mithila_vibes.9/" target="_blank" rel="noopener noreferrer" class="nav-link instagram-nav-link" title="Instagram: mithila_vibes.9"><span class="instagram-icon-glyph">📸</span> mithila_vibes.9</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" aria-label="मेनू खोलें" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Quick Return Bar -->
+  <div class="mobile-return-bar">
+    <a href="index.html" class="mobile-return-link">
+      <span>←</span> मुख्य पृष्ठ पर वापस (Home)
+    </a>
+    <button class="mobile-sidebar-toggle-btn" id="mobile-sidebar-toggle" aria-label="साइडबार मेनू">
+      <span>📁</span> फोल्डर्स मेनू ☰
+    </button>
+  </div>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Main Layout with Devotional Sidebar -->
+  <main class="section" style="padding-top: 2rem;">
+    <div class="container gallery-page-layout">
+
+      <!-- Devotional Side Bar (Return & Quick Navigation) -->
+      <aside class="gallery-sidebar" id="gallery-sidebar">
+        <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="बंद करें">✕</button>
+
+        <div class="sidebar-brand-card">
+          <img src="assets/images/temple-main.png" alt="माँ दुर्गा मंदिर जोंकी" class="sidebar-temple-thumb" />
+          <div class="sidebar-brand-info">
+            <h3 class="sidebar-title">दुर्गा पूजा जोंकी</h3>
+            <p class="sidebar-subtitle">दुर्गा पूजा समिति जोंकी</p>
+          </div>
+        </div>
+
+        <!-- Prominent Return to Home Button -->
+        <a href="index.html" class="sidebar-back-button" title="मुख्य पृष्ठ (Home) पर वापस जाएं">
+          <span class="back-icon">←</span>
+          <span class="back-text">मुख्य पृष्ठ पर वापस (Home)</span>
+        </a>
+
+        <div class="sidebar-menu-title">संग्रह फोल्डर्स (Folders)</div>
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="photos.html" class="sidebar-nav-item active">
+              <div class="sidebar-nav-left">
+                <span>📸</span>
+                <span>फोटो संग्रह (Photos)</span>
+              </div>
+              <span class="nav-item-badge" id="sidebar-photos-badge">सक्रिय</span>
+            </a>
+          </li>
+          <li>
+            <a href="videos.html" class="sidebar-nav-item">
+              <div class="sidebar-nav-left">
+                <span>🎥</span>
+                <span>वीडियो संग्रह (Videos)</span>
+              </div>
+              <span class="nav-item-badge">देखें ➔</span>
+            </a>
+          </li>
+          <li>
+            <a href="schedule.html" class="sidebar-nav-item">
+              <div class="sidebar-nav-left">
+                <span>📅</span>
+                <span>पूजा कार्यक्रम</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="map.html" class="sidebar-nav-item">
+              <div class="sidebar-nav-left">
+                <span>📍</span>
+                <span>मंदिर का नक्शा</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/mithila_vibes.9/" target="_blank" rel="noopener noreferrer" class="sidebar-nav-item" style="color: #ff758c;">
+              <div class="sidebar-nav-left">
+                <span>📸</span>
+                <span>Instagram (@mithila_vibes.9)</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-devotional-card">
+          <p class="sidebar-blessing">🌺 जय माँ दुर्गा 🌺</p>
+          <small style="color: var(--color-cream-muted); font-size: 0.8rem; line-height: 1.4; display: block;">
+            तस्वीर पर क्लिक कर Full HD दर्शन करें व डाउनलोड करें।
+          </small>
+        </div>
+      </aside>
+
+      <!-- Main Gallery Content Area -->
+      <div class="gallery-main-content">
+        <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+          <h1 class="section-title">📁 फोटो संग्रह (All Photos)</h1>
+          <div class="section-divider" style="margin: 0.5rem 0 1rem;"></div>
+          <p class="section-subtitle" style="margin: 0;">
+            माँ दुर्गा मंदिर जोंकी, पावन प्रांगण एवं पूजा समिति की सभी तस्वीरें एक ही संग्रह में
+          </p>
+        </div>
+
+        <!-- Photo Grid (All Photos in One Unified Album) -->
+        <div class="gallery-grid" id="gallery-photos-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Devotional Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <h3 class="footer-title">दुर्गा पूजा जोंकी</h3>
+      <h4 class="footer-subtitle">दुर्गा पूजा समिति जोंकी</h4>
+      <p class="footer-devotional">🌺 जय माँ दुर्गा • माँ दुर्गा की कृपा आप सभी पर बनी रहे 🌺</p>
+      
+      <!-- Instagram Official Link -->
+      <div style="margin: 1.25rem 0 0.85rem;">
+        <a href="https://www.instagram.com/mithila_vibes.9/" target="_blank" rel="noopener noreferrer" class="instagram-follow-btn" title="Follow @mithila_vibes.9 on Instagram">
+          <span>📸</span>
+          <span>Instagram पर फॉलो करें: <strong>@mithila_vibes.9</strong></span>
+        </a>
+      </div>
+
+      <div style="margin-top: 1.25rem;">
+        <a href="admin.html" class="footer-admin-discreet" title="व्यवस्थापक">🔒 व्यवस्थापक</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="photo-lightbox-modal" role="dialog" aria-modal="true">
+    <div class="lightbox-topbar">
+      <div class="lightbox-info">
+        <h4 class="lightbox-title" id="lightbox-photo-title">तस्वीर दर्शन</h4>
+        <span class="lightbox-date" id="lightbox-photo-date"></span>
+      </div>
+      <div class="lightbox-tools">
+        <button class="btn btn-outline btn-sm" onclick="galleryManager.zoomOut()" title="Zoom Out">🔍-</button>
+        <button class="btn btn-outline btn-sm" onclick="galleryManager.resetZoom()" title="Reset Zoom">100%</button>
+        <button class="btn btn-outline btn-sm" onclick="galleryManager.zoomIn()" title="Zoom In">🔍+</button>
+        <button class="btn btn-primary btn-sm" id="lightbox-download-btn" title="Download HD">📥 Download HD</button>
+        <button class="btn btn-outline btn-sm" id="lightbox-share-btn" title="Share">📤 शेयर</button>
+        <button class="btn btn-outline btn-sm" onclick="galleryManager.closePhotoLightbox()" title="Close">✕ बंद करें</button>
+      </div>
+    </div>
+    <div class="lightbox-stage">
+      <button class="lightbox-nav-btn prev" onclick="galleryManager.prevPhoto()" aria-label="पिछली तस्वीर">❮</button>
+      <div class="lightbox-image-wrap" id="lightbox-img-wrap">
+        <img src="" alt="Full HD Durga Puja Photo" class="lightbox-img" id="lightbox-target-img" />
+      </div>
+      <button class="lightbox-nav-btn next" onclick="galleryManager.nextPhoto()" aria-label="अगली तस्वीर">❯</button>
+    </div>
+  </div>
+
+  <!-- AI Chatbot "माँ दुर्गा सहायक" -->
+  <div class="chatbot-launcher" id="chatbot-launcher" title="माँ दुर्गा सहायक से पूछें">
+    <div class="chatbot-icon-wrap">🪔</div>
+    <span class="chatbot-label">माँ दुर्गा सहायक</span>
+  </div>
+
+  <div class="chatbot-window" id="chatbot-window" role="dialog" aria-label="माँ दुर्गा सहायक चैट">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <div class="chatbot-avatar">🕉️</div>
+        <div class="chatbot-title-box">
+          <h4>माँ दुर्गा सहायक</h4>
+          <span class="chatbot-status">ऑनलाइन</span>
+        </div>
+      </div>
+      <button class="chatbot-close-btn" id="chatbot-close-btn" aria-label="चैट बंद करें">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <div class="chatbot-chips">
+      <button class="chip-btn" data-query="पूजा कब शुरू होगी?">पूजा कब शुरू होगी?</button>
+      <button class="chip-btn" data-query="मंदिर कहाँ है?">मंदिर कहाँ है?</button>
+      <button class="chip-btn" data-query="आज की फोटो दिखाओ">आज की फोटो दिखाओ</button>
+      <button class="chip-btn" data-query="फोटो कैसे डाउनलोड करें?">फोटो डाउनलोड</button>
+    </div>
+    <form class="chatbot-input-bar" id="chatbot-form">
+      <input type="text" class="chatbot-input" id="chatbot-input" placeholder="प्रश्न पूछें..." autocomplete="off" />
+      <button type="submit" class="chatbot-send-btn" aria-label="संदेश भेजें">➔</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/gallery.js"></script>
+  <script src="assets/js/chatbot.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | दुर्गा पूजा जोंकी</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+
+  <link rel="icon" type="image/png" href="assets/images/temple-main.png" />
+</head>
+<body>
+
+  <!-- Admin Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/images/temple-main.png" alt="दुर्गा पूजा जोंकी" class="brand-icon" />
+        <div class="brand-text-wrap">
+          <span class="brand-title">दुर्गा पूजा जोंकी</span>
+          <span class="brand-subtitle">प्रशासन पैनल (Admin)</span>
+        </div>
+      </a>
+      <a href="index.html" class="btn btn-outline btn-sm">← मुख्य वेबसाइट देखें</a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       ADMIN LOGIN SECTION
+       ========================================================================== -->
+  <div id="admin-login-section" class="container admin-login-wrapper">
+    <div class="admin-login-card">
+      <div class="admin-lock-icon">🔐</div>
+      <h2 style="font-family: var(--font-heading); color: var(--color-gold-light); margin-bottom: 0.5rem; font-size: 1.6rem;">प्रशासन लॉगिन</h2>
+      <p style="color: var(--color-cream-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+        दुर्गा पूजा जोंकी Admin Panel
+      </p>
+
+      <div id="admin-login-alert" class="alert-message"></div>
+
+      <form id="admin-login-form">
+        <div class="form-group" style="text-align: left;">
+          <label class="form-label" for="admin-user-input">उपयोगकर्ता नाम (Username)</label>
+          <input type="text" id="admin-user-input" class="form-control" value="admin" placeholder="admin" required />
+        </div>
+        <div class="form-group" style="text-align: left;">
+          <label class="form-label" for="admin-password-input">पासवर्ड (Password)</label>
+          <input type="password" id="admin-password-input" class="form-control" placeholder="••••••••" required autocomplete="current-password" autofocus />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.75rem; padding: 0.85rem; font-size: 1rem;">
+          🔓 लॉगिन करें (Login)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ADMIN DASHBOARD (shown after login)
+       ========================================================================== -->
+  <div id="admin-dashboard-section" class="admin-dashboard container" style="display: none;">
+
+    <!-- Dashboard Header Bar -->
+    <div class="admin-header-bar">
+      <div class="admin-user-info">
+        <h2 style="font-family: var(--font-heading); color: var(--color-gold-light); font-size: 1.5rem;">
+          🛕 Admin Dashboard
+        </h2>
+        <span class="admin-badge">व्यवस्थापक</span>
+      </div>
+      <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-outline btn-sm" target="_blank">🌐 Website देखें</a>
+        <button id="admin-logout-btn" class="btn btn-sm btn-danger">🚪 Logout</button>
+      </div>
+    </div>
+
+    <!-- Alert Message Area in Dashboard -->
+    <div id="admin-dashboard-alert" class="alert-message"></div>
+
+    <!-- Stats Row -->
+    <div class="admin-stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📸</div>
+        <div>
+          <div class="stat-number" id="stat-total-photos">0</div>
+          <div class="stat-label">कुल तस्वीरें</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🎥</div>
+        <div>
+          <div class="stat-number" id="stat-total-videos">0</div>
+          <div class="stat-label">कुल वीडियो</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div>
+          <div class="stat-number" id="stat-total-schedule">0</div>
+          <div class="stat-label">कार्यक्रम</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🛕</div>
+        <div>
+          <div class="stat-number">2026</div>
+          <div class="stat-label">दुर्गा पूजा वर्ष</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Tabs -->
+    <div class="admin-tabs">
+      <button class="admin-tab-btn active" data-tab="dashboard">📊 Dashboard</button>
+      <button class="admin-tab-btn" data-tab="upload-photos">📸 तस्वीर अपलोड</button>
+      <button class="admin-tab-btn" data-tab="upload-videos">🎥 वीडियो अपलोड</button>
+      <button class="admin-tab-btn" data-tab="manage-photos">🗃️ तस्वीरें प्रबंधित करें</button>
+      <button class="admin-tab-btn" data-tab="manage-videos">🗃️ वीडियो प्रबंधित करें</button>
+      <button class="admin-tab-btn" data-tab="manage-schedule">📅 कार्यक्रम</button>
+      <button class="admin-tab-btn" data-tab="settings">⚙️ Settings</button>
+    </div>
+
+    <!-- ==================================================================
+         TAB: DASHBOARD OVERVIEW
+         ================================================================== -->
+    <div class="admin-tab-pane active" id="tab-dashboard">
+      <div class="admin-card">
+        <h3 class="admin-card-title">📊 त्वरित अवलोकन</h3>
+        <p style="color: var(--color-cream-muted); margin-bottom: 1.5rem;">
+          यहाँ से आप जो भी फोटो, वीडियो या कार्यक्रम अपलोड करेंगे, वह तुरंत सार्वजनिक वेबसाइट पर दिखने लगेगा।
+        </p>
+
+        <!-- Latest Photos Summary -->
+        <h4 style="color: var(--color-gold); margin-bottom: 1rem;">📸 हालिया तस्वीरें</h4>
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>तस्वीर</th>
+                <th>शीर्षक</th>
+                <th>तिथि</th>
+                <th>स्थिति</th>
+                <th>हटाएं</th>
+              </tr>
+            </thead>
+            <tbody id="table-photos-body">
+              <tr><td colspan="5" style="text-align:center;">लोड हो रहा है...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 style="color: var(--color-gold); margin: 2rem 0 1rem;">🎥 हालिया वीडियो</h4>
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>थंबनेल</th>
+                <th>शीर्षक</th>
+                <th>तिथि</th>
+                <th>स्थिति</th>
+                <th>हटाएं</th>
+              </tr>
+            </thead>
+            <tbody id="table-videos-body">
+              <tr><td colspan="5" style="text-align:center;">लोड हो रहा है...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================================================================
+         TAB: UPLOAD PHOTOS
+         ================================================================== -->
+    <div class="admin-tab-pane" id="tab-upload-photos">
+      <div class="admin-card">
+        <h3 class="admin-card-title">📸 तस्वीरें अपलोड करें</h3>
+        <p style="color: var(--color-cream-muted); margin-bottom: 1.5rem;">
+          मोबाइल या कंप्यूटर से एक या अनेक तस्वीरें चुनकर सीधे वेबसाइट पर प्रकाशित करें।
+        </p>
+
+        <form id="form-upload-photo">
+          <div class="form-group">
+            <label class="form-label">तस्वीर चुनें *</label>
+            <div class="file-dropzone">
+              <input type="file" id="photo-file-input" accept="image/*" multiple required />
+              <div class="dropzone-icon">📸</div>
+              <p style="color: var(--color-cream-muted); font-size: 0.95rem;">
+                फ़ाइल यहाँ खींचें या <strong style="color: var(--color-gold);">क्लिक करके चुनें</strong>
+              </p>
+              <p style="color: var(--color-cream-muted); font-size: 0.8rem; margin-top: 0.4rem;">
+                JPG, PNG, WEBP • मोबाइल कैमरे से भी सीधे चुन सकते हैं
+              </p>
+            </div>
+            <!-- Preview -->
+            <div class="preview-grid" id="photo-preview-grid"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="photo-title-input">शीर्षक (वैकल्पिक - नाम देने की आवश्यकता नहीं)</label>
+            <input type="text" id="photo-title-input" class="form-control" placeholder="खाली छोड़ सकते हैं (स्वतः 'माँ दुर्गा दर्शन' नाम रहेगा)" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="photo-desc-input">विवरण (Description - वैकल्पिक)</label>
+            <textarea id="photo-desc-input" class="form-control" placeholder="तस्वीर का संक्षिप्त विवरण (वैकल्पिक)"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="photo-date-input">तिथि (Date)</label>
+            <input type="date" id="photo-date-input" class="form-control" />
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: center; gap: 12px;">
+            <input type="checkbox" id="photo-publish-input" checked style="width: 18px; height: 18px; accent-color: var(--color-gold);" />
+            <label for="photo-publish-input" class="form-label" style="margin: 0; cursor: pointer;">
+              ✅ तुरंत वेबसाइट पर प्रकाशित करें (Publish immediately)
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.9rem;">
+            📤 तस्वीरें अपलोड एवं प्रकाशित करें
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ==================================================================
+         TAB: UPLOAD VIDEOS
+         ================================================================== -->
+    <div class="admin-tab-pane" id="tab-upload-videos">
+      <div class="admin-card">
+        <h3 class="admin-card-title">🎥 वीडियो अपलोड करें</h3>
+        <p style="color: var(--color-cream-muted); margin-bottom: 1.5rem;">
+          पूजा आरती या भजन का वीडियो चुनकर सीधे प्रकाशित करें।
+        </p>
+
+        <form id="form-upload-video">
+          <div class="form-group">
+            <label class="form-label">वीडियो फ़ाइल चुनें *</label>
+            <div class="file-dropzone">
+              <input type="file" id="video-file-input" accept="video/*" required />
+              <div class="dropzone-icon">🎥</div>
+              <p style="color: var(--color-cream-muted); font-size: 0.95rem;">
+                वीडियो फ़ाइल चुनें (MP4, WebM, MOV)
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">थंबनेल फोटो (वैकल्पिक)</label>
+            <div class="file-dropzone" style="padding: 1.25rem;">
+              <input type="file" id="video-thumb-input" accept="image/*" />
+              <div class="dropzone-icon" style="font-size: 1.5rem;">🖼️</div>
+              <p style="color: var(--color-cream-muted); font-size: 0.88rem;">थंबनेल चित्र चुनें (खाली छोड़ने पर मंदिर की फोटो दिखेगी)</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="video-title-input">वीडियो शीर्षक (वैकल्पिक - नाम देने की आवश्यकता नहीं)</label>
+            <input type="text" id="video-title-input" class="form-control" placeholder="खाली छोड़ सकते हैं (स्वतः 'माँ दुर्गा वीडियो' नाम रहेगा)" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="video-desc-input">वीडियो विवरण</label>
+            <textarea id="video-desc-input" class="form-control" placeholder="वीडियो का संक्षिप्त विवरण (वैकल्पिक)"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="video-date-input">तिथि</label>
+            <input type="date" id="video-date-input" class="form-control" />
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: center; gap: 12px;">
+            <input type="checkbox" id="video-publish-input" checked style="width: 18px; height: 18px; accent-color: var(--color-gold);" />
+            <label for="video-publish-input" class="form-label" style="margin: 0; cursor: pointer;">
+              ✅ तुरंत वेबसाइट पर प्रकाशित करें
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.9rem;">
+            📤 वीडियो अपलोड एवं प्रकाशित करें
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ==================================================================
+         TAB: MANAGE PHOTOS
+         ================================================================== -->
+    <div class="admin-tab-pane" id="tab-manage-photos">
+      <div class="admin-card">
+        <h3 class="admin-card-title">🗃️ तस्वीरें प्रबंधित करें (Photos)</h3>
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>तस्वीर</th>
+                <th>शीर्षक</th>
+                <th>तिथि</th>
+                <th>स्थिति</th>
+                <th>क्रिया (Actions)</th>
+              </tr>
+            </thead>
+            <tbody id="table-photos-manage-body">
+              <tr><td colspan="5" style="text-align:center;">लोड हो रहा है...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================================================================
+         TAB: MANAGE VIDEOS
+         ================================================================== -->
+    <div class="admin-tab-pane" id="tab-manage-videos">
+      <div class="admin-card">
+        <h3 class="admin-card-title">🗃️ वीडियो प्रबंधित करें (Videos)</h3>
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>थंबनेल</th>
+                <th>शीर्षक</th>
+                <th>तिथि</th>
+                <th>स्थिति</th>
+                <th>क्रिया (Actions)</th>
+              </tr>
+            </thead>
+            <tbody id="table-videos-manage-body">
+              <tr><td colspan="5" style="text-align:center;">लोड हो रहा है...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================================================================
+         TAB: MANAGE SCHEDULE
+         ================================================================== -->
+    <div class="admin-tab-pane" id="tab-manage-schedule">
+      <div class="admin-card">
+        <h3 class="admin-card-title">📅 नया कार्यक्रम जोड़ें</h3>
+        <form id="form-add-schedule">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="sched-date-input">तिथि *</label>
+              <input type="date" id="sched-date-input" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="sched-time-input">समय *</label>
+              <input type="text" id="sched-time-input" class="form-control" placeholder="जैसे: प्रातः 07:00 बजे" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sched-name-input">कार्यक्रम का नाम *</label>
+            <input type="text" id="sched-name-input" class="form-control" placeholder="जैसे: कलश स्थापना एवं घट स्थापना" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sched-desc-input">विवरण</label>
+            <textarea id="sched-desc-input" class="form-control" placeholder="कार्यक्रम का विस्तृत विवरण (वैकल्पिक)"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.9rem;">
+            ➕ कार्यक्रम जोड़ें
+          </button>
+        </form>
+      </div>
+
+      <div class="admin-card">
+        <h3 class="admin-card-title">📋 मौजूदा कार्यक्रम सूची</h3>
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>तिथि</th>
+                <th>समय</th>
+                <th>कार्यक्रम</th>
+                <th>हटाएं</th>
+              </tr>
+            </thead>
+            <tbody id="table-schedule-body">
+              <tr><td colspan="4" style="text-align:center;">लोड हो रहा है...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================================================================
+         TAB: SETTINGS
+         ================================================================== -->
+    <div class="admin-tab-pane" id="tab-settings">
+      <div class="admin-card">
+        <h3 class="admin-card-title">⚙️ वेबसाइट सेटिंग्स</h3>
+        <p style="color: var(--color-cream-muted); margin-bottom: 1.5rem;">
+          पूजा की तारीख और Admin पासवर्ड बदलें।
+        </p>
+
+        <form id="form-settings">
+          <div class="form-group">
+            <label class="form-label" for="setting-puja-date">दुर्गा पूजा आरंभ तिथि एवं समय (IST)</label>
+            <input type="datetime-local" id="setting-puja-date" class="form-control" />
+            <p style="color: var(--color-cream-muted); font-size: 0.82rem; margin-top: 0.5rem;">
+              इस तिथि के आधार पर लाइव काउंटडाउन स्वतः चलेगा।
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="setting-admin-passcode">Admin पासवर्ड बदलें / देखें (केवल व्यवस्थापक)</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="password" id="setting-admin-passcode" class="form-control" placeholder="नया पासवर्ड दर्ज करें" autocomplete="new-password" />
+              <button type="button" id="btn-toggle-view-pass" class="btn btn-outline" style="white-space: nowrap; padding: 0.5rem 1rem;">👁️ पासवर्ड देखें</button>
+            </div>
+            <small id="current-passcode-display" style="color: var(--color-gold); display: none; margin-top: 6px;"></small>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="setting-instagram-handle">📸 Instagram ID / यूज़रनेम</label>
+            <input type="text" id="setting-instagram-handle" class="form-control" value="mithila_vibes.9" placeholder="जैसे: mithila_vibes.9" />
+            <small style="color: var(--color-gold); display: block; margin-top: 4px;">आधिकारिक प्रोफ़ाइल: https://www.instagram.com/mithila_vibes.9/</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.9rem;">
+            💾 सेटिंग्स सहेजें (Save Settings)
+          </button>
+        </form>
+      </div>
+
+      <!-- Dedicated Website Logo Manager Card -->
+      <div class="admin-card" style="margin-top: 1.5rem;">
+        <h3 class="admin-card-title">🔱 वेबसाइट का लोगो बदलें (Website Logo Manager)</h3>
+        <p style="color: var(--color-cream-muted); margin-bottom: 1.25rem;">
+          यहाँ से वेबसाइट का मुख्य लोगो (Header Logo & Sidebar Icon) बदलें या नया लोगो अपलोड करें।
+        </p>
+
+        <form id="form-site-logo">
+          <div class="form-group">
+            <label class="form-label">नया लोगो चित्र चुनें (PNG, JPG, WEBP)</label>
+            <div class="file-dropzone" style="padding: 1.25rem;">
+              <input type="file" id="site-logo-input" accept="image/*" required />
+              <div class="dropzone-icon">🔱</div>
+              <p style="color: var(--color-cream-muted); font-size: 0.95rem;">
+                क्लिक करके नया लोगो चुनें
+              </p>
+            </div>
+            <div id="site-logo-preview" style="margin-top: 0.75rem; text-align: center;"></div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button type="submit" class="btn btn-primary" style="flex: 1; padding: 0.85rem;">
+              💾 नया लोगो लागू करें
+            </button>
+            <button type="button" id="btn-reset-logo" class="btn btn-outline" style="padding: 0.85rem;">
+              ↺ मूल मंदिर लोगो पर रीसेट करें
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Website Main Hero Cover Card -->
+      <div class="admin-card" style="margin-top: 1.5rem;">
+        <h3 class="admin-card-title">🖼️ मुख्य वेबसाइट थंबनेल / बैनर बदलें</h3>
+        <p style="color: var(--color-cream-muted); margin-bottom: 1.25rem;">
+          यहाँ से वेबसाइट का मुख्य होम पेज बैनर (Hero Background Cover) बदलें।
+        </p>
+
+        <form id="form-site-cover">
+          <div class="form-group">
+            <label class="form-label">नया मुख्य थंबनेल / मंदिर फोटो चुनें</label>
+            <div class="file-dropzone" style="padding: 1.25rem;">
+              <input type="file" id="site-cover-input" accept="image/*" required />
+              <div class="dropzone-icon">🖼️</div>
+              <p style="color: var(--color-cream-muted); font-size: 0.95rem;">
+                क्लिक करके नई मुख्य मंदिर तस्वीर चुनें
+              </p>
+            </div>
+            <div id="site-cover-preview" style="margin-top: 0.75rem; text-align: center;"></div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button type="submit" class="btn btn-primary" style="flex: 1; padding: 0.85rem;">
+              💾 मुख्य थंबनेल लागू करें
+            </button>
+            <button type="button" id="btn-reset-cover" class="btn btn-outline" style="padding: 0.85rem;">
+              ↺ मूल फोटो पर रीसेट करें
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Data Safety & Permanent Storage Backup Card (Never Lose Data) -->
+      <div class="admin-card" style="margin-top: 1.5rem; border: 1px solid rgba(16, 185, 129, 0.4);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 1rem;">
+          <h3 class="admin-card-title" style="margin: 0; color: #34d399;">🛡️ डेटा सुरक्षा एवं बैकअप (Permanent Storage Protection)</h3>
+          <span class="safety-badge">✅ ऑटो-डिलीट से 100% सुरक्षित</span>
+        </div>
+        <p style="color: var(--color-cream-muted); font-size: 0.9rem; margin-bottom: 1.25rem; line-height: 1.6;">
+          वेबसाइट में <strong>Persistent Storage API</strong> सक्रिय है — आपकी तस्वीरें और वीडियो कभी भी अपने आप डिलीट नहीं होंगे। अतिरिक्त सुरक्षा के लिए आप कभी भी 1-क्लिक में पूरा बैकअप डाउनलोड कर सकते हैं या रिस्टोर कर सकते हैं।
+        </p>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button type="button" id="btn-export-backup" class="btn btn-primary" style="flex: 1; padding: 0.85rem; background: #059669;">
+            📥 सम्पूर्ण वेबसाइट बैकअप डाउनलोड करें (Export Data)
+          </button>
+          <label for="import-backup-file-input" class="btn btn-outline" style="flex: 1; padding: 0.85rem; text-align: center; cursor: pointer; margin: 0;">
+            📤 बैकअप रिस्टोर करें (Import Backup)
+          </label>
+          <input type="file" id="import-backup-file-input" accept=".json" style="display: none;" />
+        </div>
+      </div>
+
+      <div class="admin-card" style="margin-top: 1.5rem;">
+        <h3 class="admin-card-title">ℹ️ मंदिर एवं समिति विवरण</h3>
+        <div style="color: var(--color-cream-muted); font-size: 0.92rem; line-height: 1.8;">
+          <p>🛕 <strong>मंदिर:</strong> माँ दुर्गा मंदिर, जोंकी</p>
+          <p>📍 <strong>पता:</strong> ग्राम व पोस्ट - जोंकी, प्रखंड - बासोपट्टी, जिला - मधुबनी, बिहार - 847225</p>
+          <p>👥 <strong>समिति:</strong> दुर्गा पूजा समिति जोंकी</p>
+          <p>📸 <strong>Instagram:</strong> <a href="https://www.instagram.com/mithila_vibes.9/" target="_blank" style="color: var(--color-gold);">@mithila_vibes.9</a></p>
+          <p>🔒 <strong>पासवर्ड सुरक्षा:</strong> पासवर्ड पूर्णतः गोपनीय है और केवल अधिकृत व्यवस्थापक (Admin) को ही ज्ञात है।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden File Input for Changing Photo/Video Thumbnail on-the-fly -->
+    <input type="file" id="change-thumbnail-file-input" accept="image/*" style="display:none;" />
+
+  </div> <!-- end admin-dashboard -->
+
+  <!-- Scripts -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
